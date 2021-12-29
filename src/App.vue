@@ -1,32 +1,99 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar app color="#004D40" dark>
+      <v-app-bar-title>Desafio Vue Solinftec</v-app-bar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        v-for="(link, i) in links"
+        :key="i"
+        color="white"
+        text
+        rounded
+        class="my-2"
+        :to="link.path"
+      >
+        {{ link.label }}
+      </v-btn>
+    </v-app-bar>
+
+    <!-- Login -->
+    <v-main>
+     <router-view></router-view>
+    </v-main>
+    
+    <v-footer
+    color="#004D40"
+    padless
+  >
+    <v-row
+      justify="center"
+      no-gutters
+    >
+      <v-btn
+        v-for="link in links"
+        :key="link"
+        color="white"
+        text
+        rounded
+        class="my-2"
+        :to="link.path"
+      >
+        {{ link.label }}
+      </v-btn>
+      <v-col
+        class="#004D40 py-4 text-center white--text"
+        cols="12"
+      >
+        {{ new Date().getFullYear() }} — <strong>Solinftec</strong>
+      </v-col>
+    </v-row>
+  </v-footer>
+
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+export default {
+  name: 'App',
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  components: {
+    
+  },
+
+  data: () => ({
+      links: [
+        {
+          label: "Home",
+          path: "/",
+        },
+        {
+          label: "Brígida",
+          path: "/brigida",
+        },
+        {
+          label: "Feliphe",
+          path: "/feliphe",
+        },
+        {
+          label: "Juliano",
+          path: "/juliano",
+        },
+        {
+          label: "Letícia",
+          path: "/leticia",
+        },
+        {
+          label: "Vinícius",
+          path: "/vinicius",
+        },
+        ],
+  }),
+
+  methods:{
+    
+  },
+};
+</script>
+
