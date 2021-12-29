@@ -3,6 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
 import VueTheMask from 'vue-the-mask'
+import '../node_modules/bulma/css/bulma.css'
 
 Vue.config.productionTip = false
 Vue.use(VueTheMask)
