@@ -34,7 +34,7 @@
                                 ></v-text-field>
                             </v-col>
                         </v-row >
-                         <!-- <v-text-field color="#E0F7FA" label="Pais" v-model="pais" rounded>{{pais}}</v-text-field> -->
+                       
                         <b>{{nomePAis}}</b>
                         <br>
                          <b>Total de casos: {{casosPais}}</b>
@@ -47,26 +47,6 @@
                 <br>
                 <v-spacer></v-spacer>
             </div>
-            <!-- funcionando com UL -->
-            <!-- <ul >
-               
-                <li v-for="(dado, id) in dados" :key="id"> Estado: {{dado.state}}
-                    <br>
-                    Casos: {{dado.cases}}
-                    <br>
-                    mortes: {{dado.deaths}}
-                    <v-spacer></v-spacer>
-                    
-                </li>
-              
-            </ul> -->
-            <!-- funcionando com div -->
-            <!-- <div v-for="(dado, id) in dados" :key="id">
-                <p>Estado: {{dado.state}}</p>
-                <p>Casos: {{dado.cases}}</p>
-                <p>mortes: {{dado.deaths}}</p>
-                <v-spacer></v-spacer>
-            </div> -->
             <div id="div-estado" class="dark">
                 <v-btn @click="casosPorEstado" dark >Mostrar dados por estado</v-btn>
                 <v-simple-table dark>
