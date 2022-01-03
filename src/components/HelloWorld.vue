@@ -65,6 +65,5 @@ p{
 }
 #home{
   background-color: rgb(215, 221, 202);
-  margin-top: -14px;
 }
 </style>
