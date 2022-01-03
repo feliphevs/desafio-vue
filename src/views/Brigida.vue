@@ -1,5 +1,7 @@
 <!-- Area da Logo e barra de pesquisa-->
 <template>
+
+<v-app>
   <div id="first">
     <div class="column is-half is-offset-one-quarter">
       <img src="../assets/pokemon.png" alt="Pokemon Logo" width="30%">
@@ -15,6 +17,8 @@
       </div>
     </div>
   </div>
+</v-app>
+  
 </template>
 
 <script>
@@ -55,6 +59,7 @@ export default {
 </script>
 
 <style>
+
 #first {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
