@@ -1,6 +1,6 @@
 <template>
-   <div id="app">
-    <v-app>
+    <v-app id="appleticia">
+   <div >
       <v-main>
         <v-container>
             <v-layout align-center justify-center>
@@ -16,12 +16,18 @@
                     <v-img :src="image.url" > </v-img>
                 </v-col>
             </v-row>
+            <div style="padding-top: 10px;">
+    <v-btn color="green" medium @click="loadNextImage" >
+              <v-icon>LIKE</v-icon>&nbsp; Love it</v-btn>
+    <v-btn color="red" medium @click="loadNextImage" >
+              <v-icon>DELIKE</v-icon>&nbsp; Nope it</v-btn>
+  </div>
             
 
         </v-container>
       </v-main>
-    </v-app>
   </div>
+    </v-app>
 </template>
 <script>
 
@@ -54,9 +60,27 @@ export default ({
             console.log(err)
         }
       }
-    }
+    },
+    async voteUp(){
+        await this.$store.dispatch('TheCatAPI/voteImage',{
+            image_id:this.current_image.id,
+            value: true
+        }); 
+        this.getImage();
+      },
+      async voteDown(){
+        await this.$store.dispatch('TheCatAPI/voteImage',{
+            image_id:this.current_image.id,
+            value: false
+        }); 
+        this.getImage();
+      },
   
 })
 </script>
 
-<style scoped>
+<style>
+#appleticia {
+  background-color: #FCE4EC;
+}
+</style>
