@@ -1,6 +1,7 @@
 <!-- Area da Logo e barra de pesquisa-->
 <template>
-  <div id="app">
+<v-app>
+  <div id="appbrigida">
     <div class="column is-half is-offset-one-quarter">
       <img src="../assets/pokemon.png" alt="Pokemon Logo" width="30%">
       <input type="text" name="" id="" placeholder="Buscar Pokemon" class="input is-rounded" v-model="search">
@@ -14,6 +15,8 @@
       </div>
     </div>
   </div>
+</v-app>
+  
 </template>
 
 <script>
@@ -54,7 +57,7 @@ export default {
 </script>
 
 <style>
-#app {
+#appbrigida {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
