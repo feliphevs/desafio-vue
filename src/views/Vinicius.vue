@@ -2,21 +2,24 @@
 <template>
 
     <v-app>
+
     <v-main>
         <v-container >
             <div class="blue lighten-4" id="div-total" >
                 <v-row >
                     <v-col cols="6">
-                          <v-btn @click="totalCasos"  color="primary" dark>Dados do Brasil</v-btn>
+                          <h1> <b> DADOS DO BRASIL: </b> </h1>
+                            <br>
+                            <br>
                             <br>
                             <br>
                             <v-row >
-                                <v-col cols="12" >
-                                    <b >Total de casos: {{casos}}</b>
-                                    
-                                 </v-col>
                                  <v-col cols="12">
+                                     <b><b >Total de casos: {{casos}}</b></b>
+                                     <br>
                                      <b >Total de mortes: {{mortes}}</b>
+                                     <br>
+                                     <b>Porcentagem de mortes por casos confirmados: {{porcentagemBrasil}}%</b>
                                  </v-col>
                             </v-row>    
                     </v-col>
@@ -34,12 +37,13 @@
                                 ></v-text-field>
                             </v-col>
                         </v-row >
-                       
                         <b>{{nomePAis}}</b>
                         <br>
                          <b>Total de casos: {{casosPais}}</b>
                          <br>
                          <b >Total de mortes: {{mortesPais}}</b>
+                         <br>
+                         <b>Porcentagem de mortes por casos confirmados: {{porcentagemPais}}%</b>
                     </v-col>
                 </v-row>
               
@@ -47,6 +51,7 @@
                 <br>
                 <v-spacer></v-spacer>
             </div>
+          
             <div id="div-estado" class="dark">
                 <v-btn @click="casosPorEstado" dark >Mostrar dados por estado</v-btn>
                 <v-simple-table dark>
@@ -95,6 +100,7 @@ export default ({
          //   variaves da api total
        casos: null,
        mortes: null,
+       porcentagemBrasil: null,
        dados:[
            
        ],
@@ -111,6 +117,7 @@ export default ({
     casosPais: null,
     mortesPais: null,
     nomePAis: '',
+    porcentagemPais: null,
        
     }),
     methods: {
@@ -120,6 +127,9 @@ export default ({
             const data = await response.json();
             this.casos = data.data.confirmed.toLocaleString('pt-BR');
             this.mortes = data.data.deaths.toLocaleString('pt-BR');
+            //calculo da porcentagem de mortes brasil
+            this.porcentagemBrasil = (data.data.deaths*100)/data.data.confirmed;
+            this.porcentagemBrasil = this.porcentagemBrasil.toFixed(2);
             
         },
         //consumo da api por estado
@@ -158,6 +168,9 @@ export default ({
                     this.mortesPais = dataPais.data.deaths.toLocaleString('pt-BR');
                     this.nomePAis = dataPais.data.country;
                     this.pais = '';
+                    //calculo da porcentagem de mortes por pais
+                    this.porcentagemPais = (dataPais.data.deaths*100)/dataPais.data.confirmed;
+                    this.porcentagemPais = this.porcentagemPais.toFixed(2);
                 }
                 catch(e){
                     alert("Pais não encontrado, consulte os paises disponíveis: https://covid19-brazil-api.now.sh/api/report/v1/countries", e);
@@ -168,7 +181,13 @@ export default ({
            
             
         },
+        
     },
+    //iniciando consumo da api ao carregar a página
+    created(){
+            this.totalCasos();
+            
+        }
         
     
 })
