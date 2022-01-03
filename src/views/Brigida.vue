@@ -1,13 +1,15 @@
 <!-- Area da Logo e barra de pesquisa-->
 <template>
+
 <v-app>
-  <div id="appbrigida">
+  <div id="first">
     <div class="column is-half is-offset-one-quarter">
       <img src="../assets/pokemon.png" alt="Pokemon Logo" width="30%">
       <input type="text" name="" id="" placeholder="Buscar Pokemon" class="input is-rounded" v-model="search">
       <button id="searchBtn" class="button is-fullwidth is-success is-rounded" @click="searchPokemons">Buscar</button>
     </div>
-    <div>
+    <div> 
+      <!-- pokemon List -->
       <div id="pokemon-list">
         <div :key="pokemon.url" v-for="(pokemon, index) in filteredPokemons">
           <Pokemon :index="index + 1" :name="pokemon.name" :url="pokemon.url" />
@@ -57,13 +59,15 @@ export default {
 </script>
 
 <style>
-#appbrigida {
+
+#first {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: auto;
+  background-color: #A5D6A7;
 }
 
 #searchBtn {

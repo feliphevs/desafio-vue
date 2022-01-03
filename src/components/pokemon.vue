@@ -13,6 +13,10 @@
           <p class="subtitle is-6">{{ pokemon.type }}</p>
         </div>
       </div>
+      <!-- mudar sprite do pokemon -->
+      <div class="content">
+        <button class="button is-medium is-fullwidth" @click="changeSprite">Mudar Sprite</button>
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +36,9 @@ export default {
     api.get(this.url).then((response) => {
       this.pokemon.type = response.data.types[0].type.name;
       this.currentImg = response.data.sprites.front_default;
+      this.pokemon.front = response.data.sprites.front_default;
+      this.pokemon.back = response.data.sprites.back_default;
+
     });
   },
   data() {
@@ -40,12 +47,22 @@ export default {
       currentImg: '',
       pokemon: {
         type: '',
+        front: '',
+        back: '',
       }
     }
   },
   
-  methods: {
-    
+  // mudar sprite do pokemon frente / costas
+  methods: {changeSprite: function() {
+      if(this.isFront) {
+        this.isFront = false;
+        this.currentImg = this.pokemon.back;
+      } else {
+        this.isFront = true;
+        this.currentImg = this.pokemon.front;
+      }
+    }
   },
   filters: {
     upperCase: function(value) {
@@ -63,5 +80,6 @@ export default {
 
   #card {
     width: 20rem;
+   background-color: whitesmoke
   }
 </style>
