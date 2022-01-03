@@ -66,8 +66,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: auto;
   background-color: #A5D6A7;
+  height: 100vh;
 }
 
 #searchBtn {
