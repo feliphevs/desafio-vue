@@ -1,8 +1,8 @@
 <!-- Area da Logo e barra de pesquisa-->
 <template>
 
-<v-app>
-  <div id="first">
+<v-app id="first">
+  <div>
     <div class="column is-half is-offset-one-quarter">
       <img src="../assets/pokemon.png" alt="Pokemon Logo" width="30%">
       <input type="text" name="" id="" placeholder="Buscar Pokemon" class="input is-rounded" v-model="search">
@@ -18,7 +18,7 @@
     </div>
   </div>
 </v-app>
-  
+
 </template>
 
 <script>
@@ -67,7 +67,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: #A5D6A7;
-  height: 100vh;
 }
 
 #searchBtn {
