@@ -24,6 +24,7 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "cypress": "^9.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "sass": "~1.32.0",
@@ -50,5 +51,18 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianoappel/desafio-vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianoappel/desafio-vue/issues"
+  },
+  "homepage": "https://github.com/julianoappel/desafio-vue#readme"
 }
